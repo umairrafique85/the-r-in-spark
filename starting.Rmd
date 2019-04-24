@@ -26,7 +26,7 @@ sc <- spark_connect(master = "<cluster-master>")
 
 ## Prerequisites {#starting-prerequisites}
 
-R can run in many platforms and environments; therfore, whether you use Windows, Mac or Linux, the first step is to install R from the [r-project.org](https://r-project.org/), detailed instructions are provided in the [Installing R](#appendix-install-r) appendix.
+R can run in many platforms and environments; therefore, whether you use Windows, Mac or Linux, the first step is to install R from the [r-project.org](https://r-project.org/), detailed instructions are provided in the [Installing R](#appendix-install-r) appendix.
 
 Most people use programming languages with tools to make them more productive; for R, RStudio would be such tool. Strictly speaking, RStudio is an Integrated Development Environment (or IDE), which also happens to support many platforms and environments. We strongly recommend you get RStudio installed if you haven't done so already, see details under the [Installing RStudio](#appendix-install-rstudio) appendix.
 
@@ -188,7 +188,7 @@ render_image("images/starting-spark-web-storage.png", "Apache Spark Web Interfac
 
 Notice that this dataset is fully loaded into memory since the **fraction cached** is 100%, you can know exactly how much memory this dataset is using through the **size in memory** column.
 
-The executors tab, Figure \@ref(fig:starting-spark-executors), provides a view of your cluster resources. For local connections, you will find only one executor active with only 2GB of memory allocated to Spark and 384MB available for computation. The [Tunning](#tunning) chapter you will learn how request more compute instances, resources and learn how memory is allocated.
+The executors tab, Figure \@ref(fig:starting-spark-executors), provides a view of your cluster resources. For local connections, you will find only one executor active with only 2GB of memory allocated to Spark and 384MB available for computation. The [Tuning](#tuning) chapter you will learn how request more compute instances, resources and learn how memory is allocated.
 
 ```{r starting-spark-executors-web-shot, echo=FALSE}
 invisible(webshot::webshot(
@@ -203,7 +203,7 @@ invisible(webshot::webshot(
 render_image("images/starting-spark-web-executors.png", "Apache Spark Web Interface - Executors Tab")
 ```
 
-The last tab to explore is the environment tab, Figure \@ref(fig:starting-spark-environment), this tab lists all the settings for this Spark application which the [tunning](#tunning) will also introduce them in detail. As you will learn, most settings don't need to be configured explicitly, but in order to properly run at scale, you will have to become familiar with some of them, eventually.
+The last tab to explore is the environment tab, Figure \@ref(fig:starting-spark-environment), this tab lists all the settings for this Spark application which the [tuning](#tuning) chapter will also introduce in detail. As you will learn, most settings don't need to be configured explicitly, but in order to properly run at scale, you will have to become familiar with some of them, eventually.
 
 ```{r starting-spark-environment-shot, echo=FALSE}
 invisible(webshot::webshot(
@@ -232,7 +232,7 @@ dbGetQuery(sc, "SELECT count(*) FROM mtcars")
 1       32
 ```
 
-When using `dplyr`, you write less code and it's often much easier to write than SQL; which is why we won't make use SQL in this book; however, if you are profficient in SQL, this is a viable option to you. For instance, counting records in `dplyr` is more compact and easier to understand.
+When using `dplyr`, you write less code and it's often much easier to write than SQL; which is why we won't make use of SQL in this book; however, if you are proficient in SQL, this is a viable option for you. For instance, counting records in `dplyr` is more compact and easier to understand.
 
 ```{r}
 library(dplyr)
@@ -375,7 +375,7 @@ While nesting data makes it harder to read, it is a requirement while dealing wi
 
 ### Distributed R {#starting-distributed-r}
 
-For those few cases where a particular functionality is not available in Spark and no extension has been developed, you can consider distributing your own R code across the Spark cluster. This is a powerful tools but comes with additional complexity that you should only use as a last resort option.
+For those few cases where a particular functionality is not available in Spark and no extension has been developed, you can consider distributing your own R code across the Spark cluster. This is a powerful tool but comes with additional complexity that you should only use as a last resort option.
 
 Suppose that we need to round all the values across all the columns in our dataset, one approach would be running custom R code making use of R's `round()` function:
 
