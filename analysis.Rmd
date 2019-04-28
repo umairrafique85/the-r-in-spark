@@ -493,7 +493,7 @@ render_image("images/analysis-visualizations-2.png")
 
 #### Using dbplot
 
-The `dbplot` package provides helper function for plotting with remote data.  The pakcage uses `dplyr` to push the calculations to Spark and collects the results.
+The `dbplot` package provides helper function for plotting with remote data.  The packaage uses `dplyr` to push the calculations to Spark and collects the results.
 
 The `dbplot_histogram()` function will have Spark calculate the bins and the count per bin, and then outputs a `ggplot` object.  It accepts a `binwidth` argument.
 
